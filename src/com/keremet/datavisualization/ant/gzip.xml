@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="changeme" default="all" basedir=".">
+<project name="gzip" default="all" basedir=".">
     <target name="all">
         <zip destfile="sources.zip" basedir="../../../../" excludes="**/*.jar, **/*.pde"/>
     </target>

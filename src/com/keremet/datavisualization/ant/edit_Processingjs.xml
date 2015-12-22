@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="changeme" default="all" basedir=".">
+<project name="edit_processingjs" default="all" basedir=".">
     
     <property name="source.path" value="../"/>
     <property name="destfile" value="${source.path}/js/Processingjs.pde"/>

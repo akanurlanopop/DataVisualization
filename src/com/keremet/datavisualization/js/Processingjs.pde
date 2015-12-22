@@ -605,12 +605,6 @@ public class Graph {
             int h = xml.getInt("height");
 
             size(w, h);
-        } else { 
-            console.log(canvasId.substring(1));
-            var canvas = document.getElementById(canvasId.substring(1));
-            //size(canvas.width, canvas.height);
-            console.log(canvas.width + " " + canvas.height);
-            size(800, 500);
         }
 
         theme = new Theme();
@@ -1156,7 +1150,7 @@ public class Graph {
             layoutParameters.put(path + "endY", endY);
             layoutParameters.put(path + "canvasInnerSpaceWidth", canvasInnerSpaceWidth);
 
-            //------РАСЧЕТ ГРАФ�?КОВ-------
+            //------РАСЧЕТ ГРАФИКОВ-------
             for (int i = 0; i < charts.size(); i++) {
                 charts.get(i).preprocessing(layoutParameters);
             }
@@ -3845,26 +3839,4 @@ public interface Drawable {
  */
 public interface Zoomable {
     public void zoom(float coeficient);
-}
-
-Graph graph;
-boolean state = false;
-
-void setup() {
-    var canvas_ = document.getElementById("canvas3");
-
-    var xmlString = "<graph caption='Equipment Rentals' yAxisName='Sales' xAxisName='Months'"+
-    " zoom='1'>"+
-    "<chart type='linechart' isSpline='1'>"+
-        "<series name='ColumnCharasdasad 2'>"+
-            "<set value='2' label='Apples'/>"+
-            "<set value='3' label='Oranges'/>"+
-            "<set value='10' label='Pears'/>"+
-        "</series>"+
-    "</chart>"+
-    "</graph>";
-
-    graph = new Graph(canvas_, jQuery);
-    graph.setXML(xmlString);
-    graph.draw();
 }

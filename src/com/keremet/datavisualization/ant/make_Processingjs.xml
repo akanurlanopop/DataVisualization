@@ -2,7 +2,8 @@
 <project name="make_processingjs" default="all" basedir=".">
     
     <property name="source.path" value="../"/>
-    <property name="destfile" value="${source.path}/js/Processingjs.pde"/>
+    <property name="build.path" value="../../../../../build/"/>
+    <property name="destfile" value="${build.path}/js/Processingjs.pde"/>
     
     <target name="all" depends="edit">
     </target>
@@ -69,12 +70,33 @@
         
     </target>
     
-    <target name="concat">       
+    <target name="concat" depends="copyfiles">
         <concat destfile="${destfile}">
             <fileset dir="${source.path}" includes="*.java" excludes="MainProcessing.java, Main.java"/>
             <fileset dir="${source.path}/chart" includes="*.java" excludes="MainProcessing.java, Main.java"/>
             <fileset dir="${source.path}/interfaces" includes="*.java" excludes="MainProcessing.java, Main.java"/>
         </concat>
     </target>
-    
+
+    <target name="copyfiles">
+        <mkdir dir="${build.path}/js" />
+        <mkdir dir="${build.path}/data" />
+
+        <copy todir="${build.path}/js" overwrite="false">
+            <fileset dir="${source.path}/js" />
+        </copy>
+        <copy todir="${build.path}/data" overwrite="false">
+            <fileset dir="${source.path}/data" />
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete>
+            <fileset dir="${build.path}/js" />
+            <fileset dir="${build.path}/data" />
+            <dirset dir="${build.path}/js"/>
+            <dirset dir="${build.path}/data"/>
+        </delete>
+    </target>
+
 </project>

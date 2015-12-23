@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="compile_js" default="all" basedir=".">
+    
+    <property name="source.path" value="../"/>
+    <property name="build.path" value="../../../../../build/"/>
+    <property name="sourcefile" value="${build.path}/js/Processingjs.pde"/>
+    <property name="compilefile.path" value="${build.path}js/compile.js"/>
+
+    <!-- path to Mozilla Rhino JavaScript engine -->
+    <property name="path.rhino" location="../../../../../lib/rhino/rhino1_7R4/js.jar" />
+
+    <target name="all" depends="test">
+    </target>
+
+    <!-- main target -->
+    <target name="test" description="test">
+        <!-- invoke java -->
+        <exec executable="java">
+            <!-- pass arguments -->
+            <arg line="-jar ${path.rhino} -opt -1 ${compilefile.path}" />
+        </exec>
+    </target>
+
+
+</project>

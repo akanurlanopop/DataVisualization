@@ -2,8 +2,9 @@
 <project name="edit_processingjs" default="all" basedir=".">
     
     <property name="source.path" value="../"/>
-    <property name="destfile" value="${source.path}/js/Processingjs.pde"/>
-    
+    <property name="build.path" value="../../../../../build/"/>
+    <property name="destfile" value="${build.path}/js/Processingjs.pde"/>
+
     <target name="all" depends="edit">
     </target>
     
